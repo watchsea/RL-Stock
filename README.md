@@ -151,3 +151,4 @@ pip install -r requirements.txt
 - [Create custom gym environments from scratch — A stock market example](https://towardsdatascience.com/creating-a-custom-openai-gym-environment-for-stock-trading-be532be3910e)
 - [notadamking/Stock-Trading-Environment](https://github.com/notadamking/Stock-Trading-Environment)
 - [Welcome to Stable Baselines docs! - RL Baselines Made Easy](https://stable-baselines.readthedocs.io/en/master)
+- [Trading Environment(Open AI Gym + DDQN(Keras-RL))](https://github.com/miroblog/deep_rl_trader)

@@ -24,7 +24,7 @@ def stock_trade(stock_file):
     env = DummyVecEnv([lambda: StockTradingEnv(df)])
 
     model = PPO2(MlpPolicy, env, verbose=0, tensorboard_log='./log')
-    model.learn(total_timesteps=int(1e4))
+    model.learn(total_timesteps=20000)
 
     df_test = pd.read_csv(stock_file.replace('train', 'test'))
 
@@ -58,7 +58,7 @@ def test_a_stock_trade(stock_code):
     plt.xlabel('step')
     plt.ylabel('profit')
     ax.legend(prop=font)
-    # plt.show()
+    #plt.show()
     plt.savefig(f'./img/{stock_code}.png')
 
 
@@ -82,7 +82,7 @@ def multi_stock_trade():
 
 
 if __name__ == '__main__':
-    # multi_stock_trade()
+    #multi_stock_trade()
     test_a_stock_trade('sh.600036')
     # ret = find_file('./stockdata/train', '600036')
     # print(ret)

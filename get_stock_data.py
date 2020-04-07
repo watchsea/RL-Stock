@@ -43,7 +43,9 @@ class Downloader(object):
             df_code = bs.query_history_k_data_plus(row["code"], self.fields,
                                                    start_date=self.date_start,
                                                    end_date=self.date_end).get_data()
-            df_code.to_csv(f'{self.output_dir}/{row["code"]}.{row["code_name"]}.csv', index=False)
+            codename = row["code_name"]
+            codename =codename.replace("*","")  #  由于股票名中包含不允许在文件名中存在的字符，如"*"，故去掉股票名称
+            df_code.to_csv(f'{self.output_dir}/{row["code"]}.{codename}.csv', index=False)
         self.exit()
 
 
@@ -54,6 +56,6 @@ if __name__ == '__main__':
     downloader.run()
 
     mkdir('./stockdata/test')
-    downloader = Downloader('./stockdata/test', date_start='2019-12-01', date_end='2019-12-31')
+    downloader = Downloader('./stockdata/test', date_start='2019-12-01', date_end='2020-03-30')
     downloader.run()
 
